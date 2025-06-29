@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bluewave Plumbing Company</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Bluewave Plumbing</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to Bluewave Plumbing!</h2>
+        <p>
+            We provide reliable, professional plumbing services for homes and businesses.<br>
+            From leak repairs to pipe installations, our experienced team is here to help.
+        </p>
+<h3>Book a Plumbing Service</h3>
+<form id="bookingForm">
+    <input type="text" name="customerName" placeholder="Your Name" required>
+    <input type="text" name="serviceType" placeholder="Service Type" required>
+    <input type="date" name="date" required>
+    <button type="submit" class="btn">Book Service</button>
+</form>
+<div id="bookingMessage"></div>
+<div id="servicesList"></div>
+         </main>
+
+    <footer>
+        &copy; 2025 Bluewave Plumbing. All rights reserved.
+    </footer>
+    <script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+        customerName: form.customerName.value,
+        serviceType: form.serviceType.value,
+        date: form.date.value
+    };
+
+    fetch('/api/services', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(service => {
+        document.getElementById('bookingMessage').textContent =
+            `Service booked for ${service.customerName} on ${service.date}!`;
+        form.reset();
+        loadServices(); // Refresh the list after booking
+    })
+    .catch(() => {
+        document.getElementById('bookingMessage').textContent =
+            'There was an error booking your service. Please try again.';
+    });
+});
+
+// Display all scheduled services
+function loadServices() {
+    fetch('/api/services')
+      .then(res => res.json())
+      .then(data => {
+        let html = '<h3>Scheduled Services</h3><ul>';
+        data.forEach(s => {
+            html += `<li>${s.customerName} - ${s.serviceType} on ${s.date}</li>`;
+        });
+        html += '</ul>';
+        document.getElementById('servicesList').innerHTML = html;
+      });
+}
+loadServices();
+</script>
+        
+</body>
+</html>
