@@ -1,4 +1,5 @@
-{
+[
+  {
     "id": 1,
     "customerName": "Alice Njeri",
     "serviceType": "Water Heater Installation",
@@ -11,27 +12,26 @@
     "serviceType": "Leak Repair",
     "date": "2025-07-06",
     "status": "scheduled"
+  },
+  {
+    "id": 3,
+    "customerName": "Charlie Karanja",
+    "serviceType": "Pipe Replacement",
+    "date": "2025-07-07",
+    "status": "scheduled"
+  },
+  {
+    "id": 4,
+    "customerName": "Diana Mwangi",
+    "serviceType": "Drain Cleaning",
+    "date": "2025-07-08",
+    "status": "scheduled"
+  },
+  {
+    "id": 5,
+    "customerName": "Eliud Otieno",
+    "serviceType": "Faucet Installation",
+    "date": "2025-07-09",
+    "status": "scheduled"
   }
 ]
-{
-  "id": 3,
-  "customerName": "Charlie Karanja",
-  "serviceType": "Pipe Replacement",
-  "date": "2025-07-07",
-  "status": "scheduled"
-}
-{
-  "id": 4,
-  "customerName": "Diana Mwangi",
-  "serviceType": "Drain Cleaning",
-  "date": "2025-07-08",
-  "status": "scheduled"
-}
-{
-  "id": 5,
-  "customerName": "Eliud Otieno",
-  "serviceType": "Faucet Installation",
-  "date": "2025-07-09",
-  "status": "scheduled"
-}
-{
