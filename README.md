@@ -1,6 +1,6 @@
 
 # Bluewaveplumbing
-
+Author:Mugure Kamau
 
 This is a simple web application for Bluewave Plumbing, allowing customers to book plumbing services and view all scheduled services.
 
