@@ -1,7 +1,9 @@
-// Example: List all scheduled services
-plumbingService.listAllServices();mport PlumbingService from './services/plumbingService.js';
+import PlumbingService from './services/plumbingService.js';
 
 const plumbingService = new PlumbingService();
+
+// Example: List all scheduled services
+plumbingService.listAllServices();
 
 // Example: Schedule a new plumbing service
 plumbingService.scheduleService({
