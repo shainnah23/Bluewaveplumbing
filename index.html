@@ -46,21 +46,19 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     };
 
     fetch('/api/services', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(service => {
-        document.getElementById('bookingMessage').textContent =
-            `Service booked for ${service.customerName} on ${service.date}!`;
-        form.reset();
-        loadServices(); // Refresh the list after booking
-    })
-    .catch(() => {
-        document.getElementById('bookingMessage').textContent =
-            'There was an error booking your service. Please try again.';
-    });
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(service => {
+    document.getElementById('bookingMessage').textContent = 'Service booked successfully!';
+    // Optionally refresh the services list here
+})
+.catch(() => {
+    document.getElementById('bookingMessage').textContent = 'There was an error booking your service. Please try again.';
 });
 
 // Display all scheduled services
